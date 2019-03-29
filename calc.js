@@ -81,7 +81,7 @@ function neededOre() {
             // вычисляем необходимую руду на конкретный миник
             if (miniki[testArr[j]] > 0) {
                 for (let i = 0; i < ore_db.length; i++) {
-                    oreQuantity = Math.ceil(miniki[testArr[j]] / (ore_db[i][testArr[j] + 3]) / refineYeld);
+                    oreQuantity = Math.ceil(miniki[testArr[j]] / ((ore_db[i][testArr[j] + 3]) * refineYeld));
                     orePrice = Math.round((oreQuantity * ore_db[i][11]) * 100) / 100;
                     refineProm.push([oreQuantity, ore_db[i][0], orePrice]);
                 }
@@ -94,7 +94,7 @@ function neededOre() {
 
                 // вычитаем миники из запрашиваемого количества после первого прогона по руде
                 for (let i = 0; i < miniki.length; i++) {
-                    miniki[i] = miniki[i] - (refineProm[f][0] * ore_db[f][i + 3]);
+                    miniki[i] = miniki[i] - ((refineProm[f][0] * (ore_db[f][i + 3]) * refineYeld));
                 }
             }
         }
