@@ -108,7 +108,7 @@ function neededOre() {
 
     document.getElementById("result").innerHTML += '<br>' + 'Стоимостью: ' + priceList[result][0] + ' ISK' + '<br>' + '<br>' + 'сдача:' + '<br>' + '<br>';
     for (let i = 0; i < minerals.length; i++) {
-        document.getElementById("result").innerHTML += minerals[i] + ' ' + Math.abs(priceList[result][2][i]) + '<br>';
+        document.getElementById("result").innerHTML += minerals[i] + ' ' + Math.round(Math.abs(priceList[result][2][i])) + '<br>';
     }
 
 
